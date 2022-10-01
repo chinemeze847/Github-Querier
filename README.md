@@ -1,29 +1,29 @@
-#Github Querier
+# Github Querier
 
-##Description
+## Description
 This is a Nodejs/Typescript Api project that queries the github API for some repository details like repo_name, description and number of stars.
 
-##Technologies | Dependencies
+## Technologies | Dependencies
 * Nodejs/Typescript for the  API
 * Npm is used as package manager
 * Mocha is used as testing library
 * Chai is used as assertion library
 * Octokit/rest library for query the github api
 
-##Packages
+## Packages
 1. **node_modules** where modules like express are found
 2. **src**  contains the project api
 3. **tests** Folder that contains my test file
 4. **api** contains controller and service files
 
-##Files
+## Files
 1. **app.ts** This contains the server which runs on port 8080. This is the entry point of our program
 2. **routes.ts** This file specifies the routes that our request could be routed to
 3. **github-repo-controller** It contains our controller which routes to the service
 4. **github-repo-controller.ts** It handles the application logical
 5. **github-repo.test.ts** It houses all tests for the project
 
-##Set Up
+## Set Up
 1. create a directory for your project
    ``` mkdir shyft-task1 ```
 2. set up package.json where our dependencies are defined
@@ -248,7 +248,7 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
 ]
 ```
 
-###Tests
+### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library
 
 1. ```typescript
