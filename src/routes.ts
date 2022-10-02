@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getRepoDetails, getAllRepoDetails } from './api/github-repo-controller';
+import { getRepoDetails, getAllRepoDetails, getSpecificRepoDetails } from './api/github-repo-controller';
 
 const router = Router();
 
@@ -10,5 +10,7 @@ router.route('/:owner/:repo_name').get(getRepoDetails);
 //This routes to the controller that gets details of repos
 //within particular user account
 router.route('/:owner').get(getAllRepoDetails)
+
+router.route('/:owner/repos').get(getSpecificRepoDetails);
 
 export default router;

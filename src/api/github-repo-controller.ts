@@ -39,3 +39,20 @@ export const getAllRepoDetails = async (req: Request, res: Response) => {
         })
   };
 };
+
+//This gets all the repositories of a specific user with it's details
+export const getSpecificRepoDetails =  (req: Request, res: Response) => {
+  try {
+    const repos = req.query.array
+    console.log(repos)
+  } catch (error) 
+  {
+    //This is the error return by api if username is not found
+    return res.status(404)
+      .json(
+        {
+          message: "Username Not Found",
+          status: 404
+        })
+  };
+};
