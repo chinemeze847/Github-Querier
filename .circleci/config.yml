@@ -13,6 +13,7 @@ jobs:
           pkg-manager: npm
       - run: 
         command: npm install -g typescript
+      - run:  
         command: npm install -g ts-node
         name: Install other dependencies
       - run:
