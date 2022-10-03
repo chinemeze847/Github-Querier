@@ -7,6 +7,6 @@ orbs:
 workflows:
   sample: 
     jobs:
-      - node:
+      - node/src:
           version: '16.10'
           pkg-manager: npm
