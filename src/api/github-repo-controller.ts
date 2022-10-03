@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getRepoInfo, getAllRepos } from './github-repo-service';
+import { getRepoInfo, getAllRepos, getSpecificRepos } from './github-repo-service';
 
 //This gets the details of a specific repository
 export const getRepoDetails = async (req: Request, res: Response) => {
@@ -40,18 +40,18 @@ export const getAllRepoDetails = async (req: Request, res: Response) => {
   };
 };
 
-//This gets all the repositories of a specific user with it's details
-export const getSpecificRepoDetails =  (req: Request, res: Response) => {
+//This gets details of specific repositories 
+export const getSpecificRepoDetails = async (req: Request, res: Response) => {
   try {
-    const repos = req.query.array
-    console.log(repos)
+    const reposDetails = await getSpecificRepos(req.params['owner'],(req.query.repo)as string[]);
+    res.send(reposDetails)
   } catch (error) 
   {
     //This is the error return by api if username is not found
     return res.status(404)
       .json(
         {
-          message: "Username Not Found",
+          message: "Repos Not Found",
           status: 404
         })
   };

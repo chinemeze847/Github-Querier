@@ -170,84 +170,10 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
         "description": "AWS AppSync Tutorial",
         "num_of_stars": 18
     },
-    {
-        "repo_name": "baklava",
-        "description": "Trello clone GraphQL Node.js backend ",
-        "num_of_stars": 12
-    },
-    {
-        "repo_name": "basic-react-form",
-        "description": "Basic form in React",
-        "num_of_stars": 83
-    },
-    {
-        "repo_name": "basic-realtime-react-client",
-        "description": "Basic websockets example using React for the client and feathersjs for the backend",
-        "num_of_stars": 2
-    },
-    {
-        "repo_name": "benawad.com",
-        "description": "My website",
-        "num_of_stars": 106
-    },
-    {
-        "repo_name": "BlackJack",
-        "description": null,
-        "num_of_stars": 2
-    },
-    {
-        "repo_name": "circleci-monorepo",
-        "description": null,
-        "num_of_stars": 25
-    },
-    {
-        "repo_name": "circleci-node",
-        "description": null,
-        "num_of_stars": 17
-    },
-    {
-        "repo_name": "circleci-react",
-        "description": null,
-        "num_of_stars": 16
-    },
-    {
-        "repo_name": "cocktails",
-        "description": "UI for browsing IBA cocktails",
-        "num_of_stars": 2
-    },
-    {
-        "repo_name": "codeponder",
-        "description": "Marketplace for Code Reviews",
-        "num_of_stars": 264
-    },
-    {
-        "repo_name": "codered-server",
-        "description": null,
-        "num_of_stars": 1
-    },
-    {
-        "repo_name": "Connect-Four-Python",
-        "description": null,
-        "num_of_stars": 3
-    },
-    {
-        "repo_name": "copy-paste-android-broken",
-        "description": null,
-        "num_of_stars": 3
-    },
-    {
-        "repo_name": "cra-redux-saga",
-        "description": "A simple example that uses Redux Saga and Create React App",
-        "num_of_stars": 75
-    },
-    {
-        "repo_name": "cra-template-typescript-graphql",
-        "description": null,
-        "num_of_stars": 43
-    }
 ]
-```
+ ```
 
+  
 ### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library
 

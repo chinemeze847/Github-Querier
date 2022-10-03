@@ -3,7 +3,7 @@ const { Octokit } = require("@octokit/rest");
 //Instantiates the octokit object that will be used
 //to make calls to the github API
 const octokit = new Octokit({
-    auth: "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",
+    auth: "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",
     baseUrl: 'https://api.github.com',
 
     log: {
@@ -22,15 +22,16 @@ const octokit = new Octokit({
 //This function gets repo information
 export const getRepoInfo = async (owner: string, repo: string) => {
     try {
-        
+
         //gets all the gazers of the repo
         //using pagination because the normal funtion returns maximum of 30 per page
+        console.log("owner: ", owner)
         const gazers = await octokit
             .paginate(octokit.rest.activity.listStargazersForRepo, {
                 owner,
                 repo
             })
-            .then((stargazers:{}) => {
+            .then((stargazers: {}) => {
                 return stargazers;
             });
 
@@ -43,7 +44,7 @@ export const getRepoInfo = async (owner: string, repo: string) => {
         const { data: { description } } = repoDetails;
 
         //returns a Json object of required field values
-        return { repo_name:repo, description, num_of_stars: gazers.length};
+        return { repo_name: repo, description, num_of_stars: gazers.length };
     } catch (error) {
         throw error;
     }
@@ -73,6 +74,29 @@ export const getAllRepos = async (username: string) => {
         //which will in turn retrieve the required details
         for (const name of repoNames) {
             const repoDetail = await getRepoInfo(username, name as string);
+            repoDetails.push(repoDetail);
+        }
+
+        //return the details
+        return repoDetails;
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+//Given a number of repos belonging to a specific user
+//it returns the details of the given repos
+export const getSpecificRepos = async (owner: string, repos: string[]) => {
+    try {
+        //stores repo details
+        const repoDetails: {}[] = [];
+
+        //loop through each repo detail
+        //which will in turn retrieve the required details
+        for (const repo of repos) {
+            const repoDetail = await getRepoInfo(owner, repo as string);
             repoDetails.push(repoDetail);
         }
 
