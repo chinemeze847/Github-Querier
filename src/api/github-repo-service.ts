@@ -3,7 +3,7 @@ const { Octokit } = require("@octokit/rest");
 //Instantiates the octokit object that will be used
 //to make calls to the github API
 const octokit = new Octokit({
-    auth: "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",
+    auth: "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",
     baseUrl: 'https://api.github.com',
 
     log: {
