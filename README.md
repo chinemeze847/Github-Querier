@@ -215,13 +215,13 @@ The file looks like this
     EXPOSE 3000
     CMD npm run dev
 ```
-```From node:16 ```is specifying the base image to use in the container
-```WORKDIR /usr/src/app``` creates the app directory as the root directory in the docker container
-```COPY package*.json ./``` copies the package.json and similar packages starting with package and ending with .json into the root folder i.e app
-```Run``` is used to install the remaining dependencies
-```COPY ./src ./src``` This copies everything from my src folder to the src folder of the app directory on docker
-```Expose 3000``` This is the port that will be expose on the docker container
-```CMD npm run dev``` This is the command that is run once the docker container is started
+* ```From node:16 ```is specifying the base image to use in the container
+* ```WORKDIR /usr/src/app``` creates the app directory as the root directory in the docker container
+* ```COPY package*.json ./``` copies the package.json and similar packages starting with package and ending with .json into the root folder i.e app
+* ```Run``` is used to install the remaining dependencies
+* ```COPY ./src ./src``` This copies everything from my src folder to the src folder of the app directory on docker
+* ```Expose 3000``` This is the port that will be expose on the docker container
+* ```CMD npm run dev``` This is the command that is run once the docker container is started
 
 ### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library
