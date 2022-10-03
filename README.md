@@ -171,9 +171,28 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
         "num_of_stars": 18
     },
 ]
- ```
+```
+* To get the details of specific repositories use the url ```http://localhost:3000/github/benawad/repos?repo=dogehouse&repo=vsinder&repo=twitch-chat-jeopardy``` where repos is a query string that takes each repo to be queried for details on the github api. This would return 
+```typescript
+[
+    {
+        "repo_name": "dogehouse",
+        "description": "Taking voice conversations to the moon 🚀",
+        "num_of_stars": 9166
+    },
+    {
+        "repo_name": "vsinder",
+        "description": "Dating App for VSCode",
+        "num_of_stars": 2275
+    },
+    {
+        "repo_name": "twitch-chat-jeopardy",
+        "description": null,
+        "num_of_stars": 29
+    }
+]
+```
 
-  
 ### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library
 
@@ -240,3 +259,45 @@ The test file is found in the github-rep.test.ts using mocha for testing  and ch
     });
    ```
    This test checks whether the properties return the expected values when queried.
+
+6. ```typescript
+    it('should contain the required structure if username exist', (done) => {
+        chai.request(app)
+        .get("/github/chinemeze847")
+        .end((err, res) => {
+            expect(res.status).to.equal(200);
+            expect(res.body).to.be.an("array");
+            expect(res.body).to.not.be.empty;
+            done();
+        });
+    });
+   ```
+This test ensures that this route ```/github/chinemeze847``` always returns the correct object structure.
+
+7. ```typescript
+   it('First object in the array should equal', (done) => {
+    chai.request(app)
+      .get("/github/benawad/")
+      .end((err, res) => {
+        expect(res.body[0].repo_name).to.equal("accounts");
+        expect(res.body[0].num_of_stars).to.equal(6);
+        expect(res.body[0].description).to.equal("Fullstack authentication and accounts-management for Javascript.");
+        done();
+      });
+    });
+   ```
+This test ensures that the properties of the first object returned by the array of repos is exact.
+
+8. ```typescript
+     it('Should return proper structure if repos are found', (done) => {
+    chai.request(app)
+      .get("/github/benawad/repos?repo=dogehouse&repo=vsinder&repo=twitch-chat-jeopardy")
+      .end((err, res) => {
+        expect(res.body[0].repo_name).to.equal("dogehouse");
+        expect(res.body[0].num_of_stars).to.equal(9166);
+        expect(res.body[0].description).to.equal("Taking voice conversations to the moon 🚀");
+        done();
+      });
+    });
+   ```
+This test ensures that the first object returned from this route is equal to what is expected

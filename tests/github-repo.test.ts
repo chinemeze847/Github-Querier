@@ -85,4 +85,25 @@ describe('github repo test', () => {
         done();
       });
   });
+  it('Should return proper structure if repos are found', (done) => {
+    chai.request(app)
+      .get("/github/benawad/repos?repo=dogehouse&repo=vsinder&repo=twitch-chat-jeopardy")
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body).to.be.an("array");
+        expect(res.body).to.not.be.empty;
+        done();
+      });
+  });
+  it('Should return proper structure if repos are found', (done) => {
+    chai.request(app)
+      .get("/github/benawad/repos?repo=dogehouse&repo=vsinder&repo=twitch-chat-jeopardy")
+      .end((err, res) => {
+        expect(res.body[0].repo_name).to.equal("dogehouse");
+        expect(res.body[0].num_of_stars).to.equal(9166);
+        expect(res.body[0].description).to.equal("Taking voice conversations to the moon 🚀");
+        done();
+      });
+  });
+
 });

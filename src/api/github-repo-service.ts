@@ -3,7 +3,7 @@ const { Octokit } = require("@octokit/rest");
 //Instantiates the octokit object that will be used
 //to make calls to the github API
 const octokit = new Octokit({
-    auth: "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",
+    auth: "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",
     baseUrl: 'https://api.github.com',
 
     log: {
@@ -25,7 +25,6 @@ export const getRepoInfo = async (owner: string, repo: string) => {
 
         //gets all the gazers of the repo
         //using pagination because the normal funtion returns maximum of 30 per page
-        console.log("owner: ", owner)
         const gazers = await octokit
             .paginate(octokit.rest.activity.listStargazersForRepo, {
                 owner,

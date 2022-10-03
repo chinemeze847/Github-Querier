@@ -6,7 +6,7 @@
   "scripts": {
     "start:watch": "nodemon src/app.ts",
     "dev": "npx ts-node src/app.ts",
-    "test": "mocha --require ts-node/register tests/*.test.ts --timeout 100000 --exit"
+    "test": "mocha --require ts-node/register tests/*.test.ts --timeout 1000000 --exit"
   },
   "author": "Eze",
   "license": "ISC",
