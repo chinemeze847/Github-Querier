@@ -22,6 +22,7 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
 3. **github-repo-controller** It contains our controller which routes to the service
 4. **github-repo-controller.ts** It handles the application logical
 5. **github-repo.test.ts** It houses all tests for the project
+6. **Dockerfile** for builder an image of the project
 
 ## Set Up
 1. create a directory for your project
@@ -192,6 +193,35 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
     }
 ]
 ```
+### Running in Docker container
+The docker file is used to build an image of the app so that this image can be used to run a container of that app.
+The file looks like this 
+```docker
+    FROM node:16
+
+    # Create app directory
+    WORKDIR /usr/src/app
+
+    # Install app dependencies
+    COPY package*.json ./
+
+    RUN npm install
+    RUN npm install -g typescript
+    RUN npm install -g ts-node
+
+    # Bundle app source
+    COPY ./src ./src
+
+    EXPOSE 3000
+    CMD npm run dev
+```
+```From node:16 ```is specifying the base image to use in the container
+```WORKDIR /usr/src/app``` creates the app directory as the root directory in the docker container
+```COPY package*.json ./``` copies the package.json and similar packages starting with package and ending with .json into the root folder i.e app
+```Run``` is used to install the remaining dependencies
+```COPY ./src ./src``` This copies everything from my src folder to the src folder of the app directory on docker
+```Expose 3000``` This is the port that will be expose on the docker container
+```CMD npm run dev``` This is the command that is run once the docker container is started
 
 ### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library

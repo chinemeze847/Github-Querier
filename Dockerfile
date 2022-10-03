@@ -1,12 +1,18 @@
-FROM node:12.17.0-alpine
-WORKDIR /usr
-COPY package.json ./
-COPY tsconfig.json ./
-COPY src ./src
-RUN ls -a
+#base image
+FROM node:16
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json ./
+
 RUN npm install
-RUN npm run dev
+RUN npm install -g typescript
+RUN npm install -g ts-node
 
+# Bundle app source
+COPY ./src ./src
 
-EXPOSE 9090
-CMD ["npm run dev","app.ts"]
+EXPOSE 3000
+CMD npm run dev
