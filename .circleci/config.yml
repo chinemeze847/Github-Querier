@@ -5,8 +5,4 @@ orbs:
   node: circleci/node@4.7
 
 workflows:
-  sample: 
-    jobs:
-      - node/src:
-          version: '16.10'
-          pkg-manager: npm
+ 
