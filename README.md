@@ -48,9 +48,9 @@ This is a Nodejs/Typescript Api project that queries the github API for some rep
     }
     ] ```
   
-* with the above scripts you can now run your project with the command ```npm run dev``` .
+* with the above scripts you can now run your project with the command ```npm run start``` .
 * you can run your test with ```npm run test```
-* you can run your nodemone with ```npm run start:watch```
+* you can run your nodemon with ```npm run dev```
 
 9. set up tsconfig.json file that  specifies the root files and the compiler options required to compile a TypeScript project. it looks like this:
 ```typescript

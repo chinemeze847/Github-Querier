@@ -17,7 +17,7 @@ jobs:
           command: npm install ts-node
           name: Install other dependencies
       - run:
-          command: npm run dev
+          command: npm run start
           name: starting the application
       - run:
           command: npm run test
