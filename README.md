@@ -223,6 +223,24 @@ The file looks like this
 * ```Expose 3000``` This is the port that will be expose on the docker container
 * ```CMD npm run dev``` This is the command that is run once the docker container is started
 
+### Screenshots
+* Running the Application from Docker container
+![image](https://user-images.githubusercontent.com/60647453/194023211-0b87da96-5a7d-4412-8039-8979b86d42e7.png)
+
+* Query the **localhost:9090/github/owner/repo** endpoint from postman
+![image](https://user-images.githubusercontent.com/60647453/194023607-aadf9276-9f9d-4439-ab6c-7bd736cf1d75.png)
+
+* Query the **localhost:9090/github/owner** to retrieve all repos for that user
+![image](https://user-images.githubusercontent.com/60647453/194024137-47c1f0e7-7f3d-46df-861e-72cfcc509f9b.png)
+![image](https://user-images.githubusercontent.com/60647453/194024265-16a7c14a-0ce2-4023-b50f-2e17513d5e48.png)
+![image](https://user-images.githubusercontent.com/60647453/194024453-cff40ec3-36e7-4a98-8ce8-e17829d2c41d.png)
+![image](https://user-images.githubusercontent.com/60647453/194024550-c9b3e6c5-d49f-49bd-a55d-00dcc84748d4.png)
+
+*Querying an array of specific repos
+![image](https://user-images.githubusercontent.com/60647453/194025110-dce5668f-98a0-4084-88f1-8367d0f08c33.png)
+
+
+
 ### Tests
 The test file is found in the github-rep.test.ts using mocha for testing  and chai and test library
 
