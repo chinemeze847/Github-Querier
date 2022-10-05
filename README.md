@@ -236,7 +236,7 @@ The file looks like this
 ![image](https://user-images.githubusercontent.com/60647453/194024453-cff40ec3-36e7-4a98-8ce8-e17829d2c41d.png)
 ![image](https://user-images.githubusercontent.com/60647453/194024550-c9b3e6c5-d49f-49bd-a55d-00dcc84748d4.png)
 
-*Querying an array of specific repos
+* Querying an array of specific repos
 ![image](https://user-images.githubusercontent.com/60647453/194025110-dce5668f-98a0-4084-88f1-8367d0f08c33.png)
 
 
